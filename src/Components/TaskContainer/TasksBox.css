@@ -1,0 +1,20 @@
+.tasksBox {
+  height: 80%;
+  position: static;
+  overflow: scroll;
+  align-content: center;
+}
+
+.tasksBoxUp {
+  height: 80%;
+  position: static;
+  overflow: scroll;
+  align-content: center;
+}
+
+.tasksBoxDown {
+  height: 0%;
+  position: static;
+  overflow: scroll;
+  align-content: center;
+}
