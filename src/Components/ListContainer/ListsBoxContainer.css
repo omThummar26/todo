@@ -1,0 +1,20 @@
+.listsBoxContainer {
+  height: 86%;
+  position: static;
+  align-content: center;
+  overflow: scroll;
+}
+
+.listsBoxContainerUp {
+  height: 25%;
+  position: static;
+  align-content: center;
+  overflow: scroll;
+}
+
+.listsBoxContainerDown {
+  height: 80%;
+  position: static;
+  align-content: center;
+  overflow: scroll;
+}
