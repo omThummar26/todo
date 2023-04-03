@@ -1,0 +1,26 @@
+.taskContainer {
+  width: 74%;
+  height: 98%;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5ex;
+  margin: 0.5ex;
+}
+
+.taskContainerUp {
+  width: 98%;
+  height: 70%;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5ex;
+  margin: 0.5ex;
+}
+
+.taskContainerDown {
+  width: 98%;
+  height: 0%;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5ex;
+  margin: 0.5ex;
+}

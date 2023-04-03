@@ -1,0 +1,71 @@
+.yourList {
+  display: flex;
+  align-content: center;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5ex;
+  margin: 0.5ex;
+}
+
+.yourListUp {
+  display: flex;
+  align-content: center;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5ex;
+  margin: 0.5ex;
+}
+
+.yourListDown {
+  display: flex;
+  align-content: center;
+  border: 1px solid #ccc;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 0.5ex;
+  margin: 0.5ex;
+}
+
+.yourListText {
+  width: 100%;
+}
+
+.yourListTextUp {
+  width: 80%;
+}
+
+.yourListTextDown {
+  width: 80%;
+}
+
+.expand {
+  width: 10%;
+  display: none;
+  background-color: #120bdf;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.expandUp {
+  width: 10%;
+  display: block;
+  background-color: #120bdf;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.expandDown {
+  width: 10%;
+  display: block;
+  background-color: #120bdf;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 3px;
+  cursor: pointer;
+}
