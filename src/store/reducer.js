@@ -1,3 +1,5 @@
+import produce from "immer";
+
 let initialState = {
   listArray: [],
   currentListId: 0,
@@ -9,7 +11,7 @@ let initialState = {
   expandDown: false,
 };
 
-const setInitialValue = () => {
+(function setInitialValue() {
   let tempListArray = [{ listName: "Add your to-do here", listId: 0 }];
   let tempTaskArray = [];
 
@@ -22,9 +24,7 @@ const setInitialValue = () => {
   initialState.listArray = tempListArray;
   initialState.listArrayToShowBySearch = tempListArray;
   initialState.taskArray = tempTaskArray;
-};
-
-setInitialValue();
+})();
 
 const reducer = (state = initialState, action) => {
   if (action.type === "SET_CURRENT_LIST_ID") {
@@ -35,35 +35,27 @@ const reducer = (state = initialState, action) => {
   }
 
   if (action.type === "ADD_ITEM_IN_LISTARRAY") {
-    return {
-      ...state,
-      listArray: [...state.listArray, action.payload],
-      listArrayToShowBySearch: [
-        ...state.listArrayToShowBySearch,
-        action.payload,
-      ],
-    };
+    return produce(
+      state,
+      (draft) =>
+        void (draft.listArray.push(action.payload),
+        draft.listArrayToShowBySearch.push(action.payload))
+    );
   }
 
   if (action.type === "SET_LISTARRAY") {
-    return {
-      ...state,
-      listArray: [...action.payload],
-    };
+    return produce(state, (draft) => void (draft.listArray = action.payload));
   }
 
   if (action.type === "SET_LISTARRAY_TO_SHOW_BY_SEARCH") {
-    return {
-      ...state,
-      listArrayToShowBySearch: [...action.payload],
-    };
+    return produce(
+      state,
+      (draft) => void (draft.listArrayToShowBySearch = action.payload)
+    );
   }
 
   if (action.type === "SET_TASKARRAY") {
-    return {
-      ...state,
-      taskArray: [...action.payload],
-    };
+    return produce(state, (draft) => void (draft.taskArray = action.payload));
   }
 
   if (action.type === "SET_OPTION_VALUE") {
@@ -92,6 +84,35 @@ const reducer = (state = initialState, action) => {
       ...state,
       notExpandable: action.payload,
     };
+  }
+
+  if (action.type === "SET_DELETE_LIST") {
+    return produce(
+      state,
+      (draft) =>
+        void ((draft.listArray[action.payload] = null),
+        (draft.listArrayToShowBySearch[action.payload] = null))
+    );
+  }
+
+  if (action.type === "SET_TASK_ISCOMPLETED") {
+    return produce(
+      state,
+      (draft) =>
+        void (draft.taskArray[action.payload].isCompleted =
+          !draft.taskArray[action.payload].isCompleted)
+    );
+  }
+
+  if (action.type === "SET_DELETE_TASK") {
+    return produce(
+      state,
+      (draft) => void (draft.taskArray[action.payload] = null)
+    );
+  }
+
+  if (action.type === "ADD_ITEM_IN_TASKARRAY") {
+    return produce(state, (draft) => void draft.taskArray.push(action.payload));
   }
 
   return state;

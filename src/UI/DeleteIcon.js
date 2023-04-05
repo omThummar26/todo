@@ -2,13 +2,8 @@ import "./DeleteIcon.css";
 import image from "./favicon.ico";
 import { useSelector, useDispatch } from "react-redux";
 import React from "react";
-import produce from "immer";
 import { useEffect } from "react";
-import {
-  setListArray,
-  setListArrayToShowBySearch,
-  setTaskArray,
-} from "../store/actions";
+import { deleteList, deleteTask } from "../store/actions";
 const DeleteIcon = (props) => {
   const listArray = useSelector((state) => state.listArray);
   const taskArray = useSelector((state) => state.taskArray);
@@ -22,31 +17,14 @@ const DeleteIcon = (props) => {
     localStorage.setItem("taskArray", JSON.stringify(taskArray));
   }, [taskArray]);
 
-  const changeTaskArray = (array) => {
-    dispatch(setTaskArray(array));
-  };
-
-  const changeListArray = (array) => {
-    dispatch(setListArray(array));
-    dispatch(setListArrayToShowBySearch(array));
-  };
-
   const deleteListFun = (event) => {
     event.preventDefault();
-    const array = produce(
-      listArray,
-      (draft) => void (draft[props.listId] = null)
-    );
-    changeListArray(array);
+    dispatch(deleteList(props.listId));
   };
 
   const deleteTaskFun = (event) => {
     event.preventDefault();
-    const array = produce(
-      taskArray,
-      (draft) => void (draft[props.taskId] = null)
-    );
-    changeTaskArray(array);
+    dispatch(deleteTask(props.taskId));
   };
 
   return (

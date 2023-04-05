@@ -60,3 +60,31 @@ export const setNotExpandable = (value) => {
     payload: value,
   };
 };
+
+export const deleteList = (id) => {
+  return {
+    type: "SET_DELETE_LIST",
+    payload: id,
+  };
+};
+
+export const setTaskIsCompleted = (id) => {
+  return {
+    type: "SET_TASK_ISCOMPLETED",
+    payload: id,
+  };
+};
+
+export const deleteTask = (id) => {
+  return {
+    type: "SET_DELETE_TASK",
+    payload: id,
+  };
+};
+
+export const addTaskInTaskArray = (taskObject) => {
+  return {
+    type: "ADD_ITEM_IN_TASKARRAY",
+    payload: taskObject,
+  };
+};

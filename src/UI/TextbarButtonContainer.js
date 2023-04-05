@@ -6,8 +6,8 @@ import classNames from "classnames";
 import { setCurrentListId } from "../store/actions";
 import {
   setListArrayToShowBySearch,
-  setTaskArray,
   addItemInListArray,
+  addTaskInTaskArray,
 } from "../store/actions";
 
 const TextbarButtonContainer = (props) => {
@@ -38,10 +38,6 @@ const TextbarButtonContainer = (props) => {
 
   const funAddItemInListArray = (value) => {
     dispatch(addItemInListArray(value));
-  };
-
-  const changeTaskArray = (array) => {
-    dispatch(setTaskArray(array));
   };
 
   const changeInputValue = (event) => {
@@ -79,8 +75,7 @@ const TextbarButtonContainer = (props) => {
       listId: currentListId,
       taskId: taskArray.length,
     };
-    const array = produce(taskArray, (draft) => void draft.push(taskObject));
-    changeTaskArray(array);
+    dispatch(addTaskInTaskArray(taskObject));
     event.target[0].value = "";
   };
 
